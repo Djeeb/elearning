@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,3 +19,13 @@ Route::get('/', function () {
     return view('main.home');
 });
 
+
+Auth::routes();
+Route::get('/logout', function(){
+    auth()->logout();
+    Session()->flush();
+
+    return Redirect::to('/');
+})->name('logout');
+
+Route::get('/home', 'HomeController@index')->name('home');
