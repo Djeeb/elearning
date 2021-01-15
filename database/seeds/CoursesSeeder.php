@@ -1,6 +1,7 @@
 <?php
 
 use App\Course;
+use App\Category;
 use Cocur\Slugify\Slugify;
 use Illuminate\Database\Seeder;
 
@@ -21,6 +22,7 @@ class CoursesSeeder extends Seeder
         $course->slug = $slugify->slugify($course->title);
         $course->description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium lacus eu accumsan pharetra. Donec in dui libero. Maecenas vitae sollicitudin quam. Nulla facilisis eu purus a varius. Nam sollicitudin metus sit amet felis fringilla, non semper ligula pretium. Curabitur tincidunt efficitur erat, quis ultricies lorem consequat ut. Mauris sodales euismod porttitor. Ut quis semper diam. Mauris nibh lectus, ullamcorper sit amet fermentum et, vehicula eu libero. Phasellus nec risus erat.";
         $course->price = 19.99;
+        $course->category_id = Category::all()->random(1)->first()->id;
         $course->save();
 
         $course = new Course();
@@ -29,6 +31,7 @@ class CoursesSeeder extends Seeder
         $course->slug = $slugify->slugify($course->title);
         $course->description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium lacus eu accumsan pharetra. Donec in dui libero. Maecenas vitae sollicitudin quam. Nulla facilisis eu purus a varius. Nam sollicitudin metus sit amet felis fringilla, non semper ligula pretium. Curabitur tincidunt efficitur erat, quis ultricies lorem consequat ut. Mauris sodales euismod porttitor. Ut quis semper diam. Mauris nibh lectus, ullamcorper sit amet fermentum et, vehicula eu libero. Phasellus nec risus erat.";
         $course->price = 14.99;
+        $course->category_id = Category::all()->random(1)->first()->id;
         $course->save();
 
         $course = new Course();
@@ -37,6 +40,7 @@ class CoursesSeeder extends Seeder
         $course->slug = $slugify->slugify($course->title);
         $course->description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium lacus eu accumsan pharetra. Donec in dui libero. Maecenas vitae sollicitudin quam. Nulla facilisis eu purus a varius. Nam sollicitudin metus sit amet felis fringilla, non semper ligula pretium. Curabitur tincidunt efficitur erat, quis ultricies lorem consequat ut. Mauris sodales euismod porttitor. Ut quis semper diam. Mauris nibh lectus, ullamcorper sit amet fermentum et, vehicula eu libero. Phasellus nec risus erat.";
         $course->price = 34.99;
+        $course->category_id = Category::all()->random(1)->first()->id;
         $course->save();
     }
 }
