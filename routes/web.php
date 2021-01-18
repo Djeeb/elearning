@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'MainController@home');
+Route::get('/', 'MainController@home')->name('main.home');
 
 
 Auth::routes();
@@ -28,4 +28,11 @@ Route::get('/logout', function(){
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/instructor/overview', 'InstructorController@index');
+Route::get('/instructor/overview', 'InstructorController@index')->name('instructor.index');
+Route::get('/instructor/new', 'InstructorController@create')->name('instructor.create');
+Route::post('/instructor/store', 'InstructorController@store')->name('instructor.store');
+Route::get('/instructor/courses/{id}/edit', 'InstructorController@edit')->name('instructor.edit');
+Route::put('/instructor/courses/{id}/update', 'InstructorController@update')->name('instructor.update');
+Route::get('/instructor/courses/{id}/destroy', 'InstructorController@destroy')->name('instructor.destroy');
+Route::get('/instructor/courses/{id}/pricing', 'PricingController@pricing')->name('pricing.index');
+Route::post('/instructor/courses/{id}/pricing/store', 'PricingController@store')->name('pricing.store');
