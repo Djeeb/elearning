@@ -17,6 +17,7 @@
                 <div class="schedule-tab">
                     <div class="tab-content">
                         <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                            @if(count($course->sections) > 0)
                             <div class="text-center mb-5">
                                 <a class="primary-btn" href="#">
                                     <i class="fas fa-plus mr-2"></i>
@@ -52,6 +53,14 @@
                                         </div>
                                     </div>
                                 </div>
+                            @else
+                                <div class="text-center">
+                                    <a href="{{ route('instructor.curriculum.create', $course->id) }}" class="primary-btn">
+                                        <i class="fas fa-plus"></i>
+                                        Ajouter ma première section
+                                    </a>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
