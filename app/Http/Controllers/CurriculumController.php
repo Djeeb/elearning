@@ -28,8 +28,8 @@ class CurriculumController extends Controller
             'course' => $course
         ]);
     }
-
-    public function store(Request $request, $id){
+    
+        public function store(Request $request, $id){
         $slugify = new Slugify();
         $section = new Section();
         $course = Course::find($id);
@@ -40,14 +40,10 @@ class CurriculumController extends Controller
 
         $section->video = $video;
         $section->course_id = $id;
-        
-        $getID3 = new \getID3();
-        $pathVideo = 'storage/courses_sections/' . Auth::user()->id . '/' . $video;
-        $fileAnalyze = $getID3->analyze($pathVideo);
-        dd($fileAnalyze);
-        $playtime = $fileAnalyze['playtime_string'];
-        $section->playtime_seconds = $playtime;
 
+        $playtime = $this->videoManager->getVideoDuration($video);
+        $section->playtime_seconds = $playtime;
+        
         $section->save();
         return redirect()->route('instructor.curriculum.index', $course->id);
     }
