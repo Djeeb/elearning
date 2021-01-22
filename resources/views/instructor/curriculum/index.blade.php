@@ -41,11 +41,17 @@
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <div class="sc-text d-flex justify-content-around">
-                                                        <a class="btn btn-danger" href="#">
+                                                        <a class="btn btn-danger" href="{{ route('instructor.curriculum.destroy', [
+                                                            'id' => $course->id,
+                                                            'section' => $section->id
+                                                        ]) }}">
                                                             <i class="fas fa-trash"></i>
                                                             Supprimer
                                                         </a>
-                                                        <a class="btn btn-warning" href="#">
+                                                        <a class="btn btn-warning" href="{{ route('instructor.curriculum.edit', [
+                                                            'id' => $course->id,
+                                                            'section' => $section->id
+                                                        ]) }}">
                                                             <i class="fas fa-edit"></i>
                                                             Modifier
                                                         </a>
