@@ -42,9 +42,14 @@
                                 <img src="/storage/courses/{{ $course->user_id }}/{{ $course->image }}" alt="">
                             </div>
                             <div class="col-md-6">
-                                <div class="price-item top-rated">
-                                    <div class="tr-tag">
-                                        <i class="fa fa-star"></i>
+                                    <div class="price-item top-rated">
+                                        <div class="tr-tag">
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <div class="pi-price mt-5">
+                                            <h2><span>€</span>{{ $course->price }}</h2>
+                                        </div>
+                                        <a href="#" class="price-btn">M'inscrire <i class="fas fa-arrow-right"></i></a>
                                     </div>
                                     <div class="pi-price mt-5">
                                         <h2><span>€</span>{{ $course->price }}</h2>
