@@ -29,7 +29,7 @@ Route::get('/logout', function(){
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-<<<<<<< HEAD
+
 /**
  * Courses
  */
@@ -39,8 +39,8 @@ Route::get('/courses/{slug}', 'CoursesController@course')->name('courses.show');
 /**
  * Vue Formateur
  */
-=======
->>>>>>> feature/trainer_management
+
+
 Route::get('/instructor/overview', 'InstructorController@index')->name('instructor.index');
 Route::get('/instructor/new', 'InstructorController@create')->name('instructor.create');
 Route::post('/instructor/store', 'InstructorController@store')->name('instructor.store');
@@ -72,3 +72,11 @@ Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::get('/cart/{id}/store', 'CartController@store')->name('cart.store');
 Route::get('/cart/{id}/destroy', 'CartController@destroy')->name('cart.destroy');
 Route::get('/cart/clear', 'CartController@clear')->name('cart.clear');
+
+/**
+ * Wishlist
+ */
+Route::get('/wishlist/{id}/store', 'WishListController@store')->name('wishlist.store');
+Route::get('/wishlist/{id}/destroy', 'WishListController@destroy')->name('wishlist.destroy');
+Route::get('/wishlist/{id}/switch', 'WishListController@toCart')->name('wishlist.toCart');
+Route::get('/cart/{id}/switch', 'WishListController@toWishList')->name('cart.toWishList');
