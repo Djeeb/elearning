@@ -92,7 +92,7 @@
                             <div class="d-flex">
                                 <img class="avatar border-rounded" src="/storage/courses/{{ $item->model->user_id }}/{{ $item->model->image }}"/>
                                 <div class="user-infos ml-3">
-                                    <small>{{ $course->name }}</small>
+                                    <small>{{ $item->name }}</small>
                                     <p class="text-danger">{{ $item->price }} €</p>
                                 </div>
                             </div>
