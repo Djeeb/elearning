@@ -48,6 +48,7 @@ Route::get('/instructor/courses/{id}/edit', 'InstructorController@edit')->name('
 Route::put('/instructor/courses/{id}/update', 'InstructorController@update')->name('instructor.update');
 Route::get('/instructor/courses/{id}/destroy', 'InstructorController@destroy')->name('instructor.destroy');
 Route::get('/instructor/courses/{id}/publish', 'InstructorController@publish')->name('instructor.publish');
+Route::get('/instructor/courses/{id}/participants', 'InstructorController@participants')->name('instructor.participants');
 
 /**
  * Tarification
@@ -80,3 +81,10 @@ Route::get('/wishlist/{id}/store', 'WishListController@store')->name('wishlist.s
 Route::get('/wishlist/{id}/destroy', 'WishListController@destroy')->name('wishlist.destroy');
 Route::get('/wishlist/{id}/switch', 'WishListController@toCart')->name('wishlist.toCart');
 Route::get('/cart/{id}/switch', 'WishListController@toWishList')->name('cart.toWishList');
+
+/**
+ * Checkout
+ */
+Route::get('/checkout', 'CheckoutController@checkout')->name('checkout.payment');
+Route::post('/checkout/charge', 'CheckoutController@charge')->name('checkout.charge');
+Route::get('/checkout/success', 'CheckoutController@success')->name('checkout.success');
