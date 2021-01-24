@@ -1,3 +1,11 @@
+@php
+use App\Category;
+use App\CourseUser;
+
+$coursesUser = CourseUser::where('user_id', Auth::user()->id)->get();
+
+@endphp
+
 <nav class="mainmenu mobile-menu">
     <ul>
         <li class="active">
@@ -12,11 +20,14 @@
                 Suivre un cours
             </a>
             <ul class="dropdown px-2 py-3">
-                <li>
-                    <a href="#">
-                    Catégorie
-                    </a>
-                </li>
+                @foreach(\App\Category::all() as $category)
+                    <li>
+                        <a href="{{ route('courses.filter', $category->id) }}">
+                            {!! $category->icon !!}
+                            {{ $category->name }}
+                        </a>
+                    </li>
+                @endforeach
             </ul>
         </li>
         <li>
@@ -31,19 +42,21 @@
             </ul>
         </li>
         <li>
-            <a href="#">
+            <a href="{{ route('participant.index') }}">
                 <i class="fas fa-book"></i>
                 Mes cours
             </a>
             <ul class="dropdown">
+                @foreach($coursesUser as $item)
                 <li>
                     <div class="d-flex  ml-2 my-3">
-                        <img class="avatar border-rounded" src="https://blog.hyperiondev.com/wp-content/uploads/2019/02/Blog-Types-of-Web-Dev.jpg"/>
+                        <img class="avatar border-rounded" src="/storage/courses/{{ $item->course->user_id }}/{{ $item->course->image }}"/>
                         <div class="user-infos">
-                            <a href="#"><small>Titre du cours</small></a>
+                            <a href="#"><small>{{ $item->course->title }}</small></a>
                         </div>
                     </div>
                 </li>
+                @endforeach
             </ul>
         </li>
         <li>

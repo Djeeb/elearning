@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Payment;
+use App\CourseUser;
 use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -44,6 +45,11 @@ class CheckoutController extends Controller
                     'instructor_part' => $instructor_part,
                     'elearning_part' => $elearning_part,
                     'email'=> Auth::user()->email
+                ]);
+
+                CourseUser::create([
+                    'user_id' => Auth::user()->id,
+                    'course_id' => $item->model->id
                 ]);
             }
 
