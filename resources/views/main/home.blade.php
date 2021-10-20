@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="col-lg-5">
-                <img src="{{ asset('img/hero-right.png') }}" alt="">
+                <img src="{{ asset('img/Mo_Better_Black.png') }}" alt="">
             </div>
         </div>
     </div>

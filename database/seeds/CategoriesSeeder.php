@@ -26,5 +26,10 @@ class CategoriesSeeder extends Seeder
         $category->icon = '<i class="fas fa-sitemap"></i>';
         $category->name = "Infrastructure";
         $category->save();
+
+        $category = new Category();
+        $category->icon = '<i class="fa-solid fa-pen-fancy"></i>';
+        $category->name = "Stratégie";
+        $category->save();
     }
 }
